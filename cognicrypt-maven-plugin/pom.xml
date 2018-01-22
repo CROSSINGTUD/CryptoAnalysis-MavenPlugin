@@ -4,7 +4,7 @@
 
 	<groupId>de.fraunhofer.iem</groupId>
 	<artifactId>cognicrypt-maven-plugin</artifactId>
-	<version>1.0-SNAPSHOT</version>
+	<version>1.0</version>
 	<packaging>maven-plugin</packaging>
 
 	<name>cognicrypt-maven-plugin Maven Plugin</name>

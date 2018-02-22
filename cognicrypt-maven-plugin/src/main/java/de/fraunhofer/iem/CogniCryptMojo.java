@@ -19,8 +19,8 @@ import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.project.MavenProject;
 
-import crypto.SourceCryptoScanner;
-import crypto.SourceCryptoScanner.CG;
+import crypto.HeadlessCryptoScanner;
+import crypto.HeadlessCryptoScanner.CG;
 
 @Mojo(name = "check")
 public class CogniCryptMojo extends AbstractMojo {
@@ -89,7 +89,7 @@ public class CogniCryptMojo extends AbstractMojo {
 		} else {
 			callGraphAlogrithm = CG.CHA;
 		}
-		SourceCryptoScanner sourceCryptoScanner = new SourceCryptoScanner() {
+		HeadlessCryptoScanner sourceCryptoScanner = new HeadlessCryptoScanner() {
 
 			@Override
 			protected String sootClassPath() {

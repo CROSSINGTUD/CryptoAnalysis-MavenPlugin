@@ -89,6 +89,7 @@ public class CogniCryptMojo extends AbstractMojo {
 		} else {
 			callGraphAlogrithm = CG.CHA;
 		}
+		final String outputFile = reportsFolder.getAbsolutePath() + File.separator + artifactIdentifier + ".txt";
 		HeadlessCryptoScanner sourceCryptoScanner = new HeadlessCryptoScanner() {
 
 			@Override
@@ -119,21 +120,18 @@ public class CogniCryptMojo extends AbstractMojo {
 			protected String getRulesDirectory() {
 				return rulesDirectory;
 			}
+
+			@Override
+			protected String getCSVOutputFile() {
+				return null;
+			}
+
+			@Override
+			protected String getOutputFile() {
+				return outputFile;
+			}
 		};
 		sourceCryptoScanner.exec();
-		if (sourceCryptoScanner.hasSeeds()) {
-			String outputFile = reportsFolder.getAbsolutePath() + File.separator + artifactIdentifier + ".txt";
-			try (Writer writer = new BufferedWriter(
-					new OutputStreamWriter(new FileOutputStream(outputFile), "utf-8"))) {
-				writer.write(sourceCryptoScanner.getReporter().toString());
-			} catch (UnsupportedEncodingException e) {
-				e.printStackTrace();
-			} catch (FileNotFoundException e) {
-				e.printStackTrace();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
 		if(ps_console != null)
 			System.setOut(ps_console);
 	}

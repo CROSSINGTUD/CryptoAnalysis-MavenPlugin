@@ -127,7 +127,7 @@ public class CogniCryptMojo extends AbstractMojo {
 			}
 
 			@Override
-			protected String getOutputFile() {
+			protected String getOutputFolder() {
 				return outputFile;
 			}
 		};
